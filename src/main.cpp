@@ -3,17 +3,14 @@
 #include <random>
 #include <map>
 #include <unordered_set>
-#include <climits> // for min/max int
-
-//#include <string>
+#include <climits>
+// #include <string>
 // #include <cstdlib>
-
 //#include <fstream>
-
 
 #include "CLI11.hpp"
 
-// function prototypes
+/* ---[ function prototypes ]--- */
 void randomNumberMaker(std::set<int>& randomNumbers, const int& howManyNumbers, const int& maxPossible);
 
 // what are best practices for parsing words from an external file?

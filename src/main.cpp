@@ -3,28 +3,30 @@
 #include <random>
 #include <map>
 #include <unordered_set>
-#include <climits>
+
+
+// work-in-progress
+// #include <climits>
 // #include <string>
 // #include <cstdlib>
-//#include <fstream>
+// #include <fstream>
 
 #include "CLI11.hpp"
 
 /* ---[ function prototypes ]--- */
 void randomNumberMaker(std::set<int>& randomNumbers, const int& howManyNumbers, const int& maxPossible);
 
-// what are best practices for parsing words from an external file?
+// miniature test dictionary
 std::vector<std::string> wordDictionary = { "Apple", "Banana", "Carrot", "Daikon", "Eggplant", "Fennel", "Ginger" };
 
-
-// add built-in dictionary options
-// check out dict/dictd and goldendict on arch linux
-// sounds like a good idea to be compatible with dictd formats!
-
-// next feature:
-// need a source of randomness
-// need a selection method (use randomness to choose the words)
-
+/* ---[ next features ]--- */
+// better dictionary parsing
+// better default dictionaries
+// check out dict/dictd and goldendict?
+// more randomness options: sources of entropy?
+// verbose mode, particularly with tweaking randomness and total length of output
+// give a few options/results by default
+// format output nicer
 
 int main(int argc, char** argv)
 {
@@ -85,7 +87,6 @@ int main(int argc, char** argv)
     }
 
     // make random numbers
-
     std::set<int> randomNumbers;
     int howManyNumbers = wordCount;
     int maxPossible = 100;
@@ -107,16 +108,18 @@ int main(int argc, char** argv)
 
     std::cout << " ]\n";
 
-    std::cout << "Arguments:\n";
-    std::cout << "wc: " << wordCount << "\n";
-    std::cout << "min: " << minimumWordLength << "\n";
-    std::cout << "max: " << maximumWordLength << "\n";
-    std::cout << "dict: " << dictionarySource << "\n";
-    std::cout << "\n > kept: " << countKeeps << "\n";
-    std::cout << " > rejected: " << countRejects << "\n";
-    std::cout << " > duplicates: " << countDuplicates << "\n";
-    std::cout << " > set size: " << wordChecker.size() << "\n";
-    std::cout << " > map size: " << wordListMap.size() << "\n";
+    std::cout << "\n---[ Debug ]---\n";
+    std::cout << " > Args:\n";
+    std::cout << "   > wc: " << wordCount << "\n";
+    std::cout << "   > min: " << minimumWordLength << "\n";
+    std::cout << "   > max: " << maximumWordLength << "\n";
+    std::cout << "   > dict: " << dictionarySource << "\n";
+    std::cout << " > Dict:\n";
+    std::cout << "   > kept: " << countKeeps << "\n";
+    std::cout << "   > rejected: " << countRejects << "\n";
+    std::cout << "   > duplicates: " << countDuplicates << "\n";
+    std::cout << "   > set size: " << wordChecker.size() << "\n";
+    std::cout << "   > map size: " << wordListMap.size() << "\n";
 
     return 0;
 }
